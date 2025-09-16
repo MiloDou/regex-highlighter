@@ -1,0 +1,59 @@
+<!-- filepath: src/templates/index.html -->
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+    <section class="regex-controls">
+        <div class="preset-section">
+            <h2>Patrones Predefinidos</h2>
+            <div class="preset-buttons">
+                <button class="regex-btn uppercase" data-pattern="[A-Z]+" data-color="#FF7070">
+                    <i class="fas fa-font"></i> Mayúsculas
+                </button>
+                <button class="regex-btn letters" data-pattern="[a-zA-Z]+" data-color="#70FF70">
+                    <i class="fas fa-text-width"></i> Todas las letras
+                </button>
+                <button class="regex-btn numbers" data-pattern="[0-9]+" data-color="#7070FF">
+                    <i class="fas fa-hashtag"></i> Números
+                </button>
+                <button class="regex-btn symbols" data-pattern="[^a-zA-Z0-9\s]+" data-color="#FFB670">
+                    <i class="fas fa-at"></i> Símbolos especiales
+                </button>
+            </div>
+        </div>
+
+        <div class="custom-regex">
+            <h2>Patrón Personalizado</h2>
+            <div class="custom-input-group">
+                <div class="pattern-input">
+                    <input type="text" id="customPattern" placeholder="Ingrese su expresión regular">
+                    <div class="color-picker">
+                        <label for="customColor">Color:</label>
+                        <input type="color" id="customColor" value="#9370DB">
+                    </div>
+                </div>
+                <button id="addCustomPattern" class="add-pattern-btn">
+                    <i class="fas fa-plus"></i> Agregar Patrón
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <section class="text-analysis">
+        <div class="input-area">
+            <h2>Texto para Analizar</h2>
+            <textarea id="testString" placeholder="Ingrese aquí el texto que desea analizar..."></textarea>
+        </div>
+
+        <div class="output-area">
+            <h2>Resultado</h2>
+            <div id="highlightedOutput" class="highlighted-text"></div>
+        </div>
+    </section>
+
+    <section class="active-patterns">
+        <h2>Patrones Activos</h2>
+        <div id="activePatternsList" class="patterns-list"></div>
+    </section>
+</div>
+{% endblock %}
