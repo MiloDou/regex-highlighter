@@ -118,6 +118,16 @@ h2 {
     filter: brightness(0.95);
 }
 
+.regex-btn.clear {
+    background-color: #dc3545;
+    margin-top: 15px;
+    width: 100%;
+}
+
+.regex-btn.clear:hover {
+    background-color: #c82333;
+}
+
 .custom-regex {
     background-color: #f8f9fa;
     padding: var(--spacing);

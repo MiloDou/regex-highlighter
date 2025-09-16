@@ -36,6 +36,25 @@ document.addEventListener('DOMContentLoaded', function() {
     // Add listener for text changes
     testInput.addEventListener('input', debounce(processRegex, 300));
 
+    // Add listener for clear all button
+    document.getElementById('clearAll').addEventListener('click', function() {
+        // Clear text
+        document.getElementById('testString').value = '';
+        document.getElementById('highlightedOutput').innerHTML = '';
+        
+        // Clear custom pattern
+        document.getElementById('customPattern').value = '';
+        
+        // Deactivate all regex buttons
+        document.querySelectorAll('.regex-btn').forEach(button => {
+            button.classList.remove('active');
+        });
+        
+        // Clear active patterns
+        activePatterns.clear();
+        updatePatternsList();
+    });
+
     function addNewPattern(pattern, color) {
         activePatterns.set(pattern, { pattern, color });
         updatePatternsList();
